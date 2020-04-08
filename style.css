@@ -1,0 +1,19 @@
+h1, h2 {
+    text-align: center;
+}
+
+.reset-game--button {
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+    cursor: pointer;
+    border: none;
+    background-color: #97c8ea;
+    outline: none;
+    padding: 15px 50px;
+    transition-duration: 0.4s;
+}
+
+.reset-game--button:hover {
+    background-color: #8bbcde;
+}
