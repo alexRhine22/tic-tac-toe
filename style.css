@@ -7,15 +7,20 @@ h1, h2, h3 {
     margin: 0 auto;
     text-align: center;
     cursor: pointer;
-    border: none;
-    background-color: #97c8ea;
+    /* border: none; */
+    border-radius: 10px;
+    color: white;
+    border: 6px solid #FC766A;
+    background-color: #34495e;
     outline: none;
     padding: 15px 50px;
     transition-duration: 0.4s;
+    font-weight: 600;
+    font-size: 20px;
 }
 
 .reset-game--button:hover {
-    background-color: #8bbcde;
+    background-color: #577986;
 }
 
 .game-board {
