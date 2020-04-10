@@ -1,24 +1,36 @@
-const box1 = document.getElementById('box-1');
-const box2 = document.getElementById('box-2');
-const box3 = document.getElementById('box-3');
-const box4 = document.getElementById('box-4');
-const box5 = document.getElementById('box-5');
-const box6 = document.getElementById('box-6');
-const box7 = document.getElementById('box-7');
-const box8 = document.getElementById('box-8');
-const box9 = document.getElementById('box-9');
-
 const gameBoard = (() => {
+    const squares = [];
     const gameGrid = document.getElementById('game-grid');
-    let gameBoardArr = ['','','','','','','','',''];
+    let gameBoardArr = ['', '', '', '', '', '', '', '', ''];
 
+    gameBoardArr.forEach(function (tile, index) {
+        let div = document.createElement('div');
+        div.innerHTML = tile;
+        div.classList.add('box');  // Adds box style to each box in tic-tac-toe grid
+        div.setAttribute('id', index);
+        squares.push(div); // add square to square array
+        gameGrid.append(div); // Add div to gamegrid
+    });
 
+    return { squares }
 })();
 
 function render() {
-    
+    gameBoard.squares.forEach(square => {
+        square.addEventListener("click", function () {
+            if (square.innerHTML !== 'O' || square.innerHTML !== 'X') {
+                square.innerHTML = 'X';
+            }    
+        });
+    });
 }
 
-// var game = gameBoard();
+document.getElementById('reset-game').addEventListener("click", function () {
+    // event listener for reset game button
+    gameBoard.squares.forEach(square => {
+        square.innerHTML = '';
+    });
+
+});
 
 render();
