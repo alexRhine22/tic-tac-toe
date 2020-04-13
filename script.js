@@ -15,17 +15,17 @@ const gameBoard = (() => {
     return { squares }
 })();
 
-function render() {
-    gameBoard.squares.forEach(square => {
-        square.addEventListener("click", function () {
-            if (square.innerHTML !== 'O' && square.innerHTML !== 'X') {
-                square.innerHTML = 'X';
-                computerTurn();
-            }
 
-        });
+gameBoard.squares.forEach(square => {
+    square.addEventListener("click", function () {
+        if (square.innerHTML !== 'O' && square.innerHTML !== 'X') {
+            square.innerHTML = 'X';
+            computerTurn();
+        }
+
     });
-}
+});
+
 
 function computerTurn() {
     var randomNum = Math.floor(Math.random() * 8);
@@ -71,7 +71,7 @@ function checkWinner() {
                 countSamePlayerSquare += 1;
             }
         }
-        
+
         if (countSamePlayerSquare == 3) {
             alert('PLAYER WINS!');
             winner = true;
@@ -82,7 +82,7 @@ function checkWinner() {
 
     for (var i = 0; i < winStructure.length; i++) {
         countSamePlayerSquare = 0;
-        
+
         for (var j = 0; j < winStructure[i].length; j++) {
             if (gameBoard.squares[winStructure[i][j]].innerHTML == 'O') {
                 countSamePlayerSquare += 1;
@@ -103,7 +103,7 @@ function checkWinner() {
     }
 }
 
-function resetGame () {
+function resetGame() {
     gameBoard.squares.forEach(square => {
         square.innerHTML = '';
     });
@@ -115,4 +115,3 @@ document.getElementById('reset-game').addEventListener("click", function () {
 
 });
 
-render();
